@@ -1,5 +1,5 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -22,12 +22,13 @@
 </head>
     <body class="login-body">
         <div class="container">
-          <form class="form-signin">
+          <form class="form-signin" method="post">
+              {% csrf_token %}
             <h2 class="form-signin-heading">登录</h2>
             <div class="login-wrap">
-                <input type="text" name="username" class="form-control" placeholder="用户名" maxlength="150" required="" id="id_username">
-                <input type="password" name="password" class="form-control" placeholder="密 码" maxlength="128" required="" id="id_password">
-                <input type="text" name="captcha" class="captcha" placeholder="验证码"  error_messages="{'invalid': '验证码错误'}" required="" id="id_captcha">
+                {{ form.username}}
+                {{ form.password}}
+                {{ form.captcha}}
                 <a href="javascript:void(0);"><img id="captcha_img" src="data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAeCAIAAABoq03CAAACcUlEQVR4nO1aQXLCMAxcMX1A4cwM
     Fz7QQzu8hA8wPKIz/QB/gFM/U9pLf1J+oB4MxrHl2I4dJzDscCAeSZbWliInIWbGBURkXnYAEQHI
     NHKXyGX2gUhMhnYgAJUidwCB6FKxFbFzNwknEH03sflQM0uISE33qNGV8BSUaF//Ua1Tt56n705J
@@ -42,12 +43,54 @@
     Z4zn6yaS8lE6gCofWD2IroSxf6nUjhv6jum2ic5Px2pL9Q+TVYba1BF5qAAAAABJRU5ErkJggg==
     " ></a>
                 <div class="user-reg">
-                    <a href="#"> 用户注册</a>
-                    <span class="pull-right"> <a href=""> 忘记密码?</a></span>
+                    <a href="{% url 'accounts:register' %}"> 用户注册</a>
+                    <span class="pull-right"> <a href="{% url 'accounts:passwd_forget' %}"> 忘记密码?</a></span>
                 </div>
                 <button class="btn btn-lg btn-login btn-block" type="submit">登录</button>
+                {{ msg }}
+                <p class="msg"></p>
             </div>
           </form>
         </div>
+        <script>
+            get_captcha_img();
+            $("#captcha_img").click(get_captcha_img);
+
+            function get_captcha_img() {
+                $.ajax({
+                    url: '{% url 'apis:get_captcha' %}',
+                    type: 'GET',
+                    dataType: 'text',
+                    success: function (data) {
+                        $('#captcha_img').attr('src', data);
+                    }
+                });
+            }
+        </script>
+        <script>
+            // 这里在form中定义了，如果没定义可以用jquery添加事件
+            // $("#id_captcha").blur(check_captcha);
+
+            // 当失去焦点时检查验证码
+            function check_captcha() {
+                var captcha_code = $('#id_captcha').val();
+                if (captcha_code.length == 0){
+                    return false
+                }
+                $.ajax({
+                    url: '{% url 'apis:check_captcha' %}',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {"captcha_code": captcha_code},
+                    success: function (data) {
+                        if(data.code == 400){
+                             $('.msg').html("验证码错误");
+                        }else{
+                            $('.msg').html("");
+                        }
+                    }
+                });
+            };
+        </script>
     </body>
 </html>

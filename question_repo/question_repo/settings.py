@@ -41,14 +41,18 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.usercenter',
     'apps.apis',
-    'apps.repo',
+    'apps.repo.apps.RepoConfig',
+    'ckeditor',
+    'ckeditor_uploader',
+    'easy_thumbnails'
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -67,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.repo.context_processors.repo_data',
             ],
         },
     },
@@ -124,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(os.path.join(BASE_DIR,'static'))
+    os.path.join(BASE_DIR,'static')
 ]
 
 
@@ -237,3 +242,87 @@ LOGGING = {
         },
     }
 }
+
+AUTH_USER_MODEL = 'accounts.User'
+
+CACHES = {
+    'default': {
+        # BACKEND配置缓存后端为RedisCache
+        'BACKEND': 'django_redis.cache.RedisCache',
+        # LOCATION配置redis服务器地址
+        'LOCATION': 'redis://192.168.0.111:6379',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+             "PASSWORD": "",
+        },
+    },
+}
+
+FontPath = os.path.join(BASE_DIR,'static/fonts/')
+
+# 注意：在此之前需要配置MEDIA_URL和MEDIA_ROOT
+# 配置媒体文件路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if not os.path.exists(MEDIA_ROOT):
+    os.mkdir(MEDIA_ROOT)
+MEDIA_URL = '/media/'
+THUMB_SIZE = 70
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440*10
+
+STATIC_ROOT = os.path.join(BASE_DIR,'allstatic')
+
+
+# CKEditor配置
+# 真实路径为：MEDIA_URL+CKEDITOR_UPLOAD_PATH(MEDIA_ROOT/CKEDITOR_UPLOAD_PATH)
+CKEDITOR_UPLOAD_PATH = "ckeditor_upload"
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+    'default_ckeditor':{
+        'toolbar': 'Full',
+    },
+    'default': {
+        'toolbar': 'Full',
+    },
+}
+
+# 缩略图配置
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (65,65), 'crop': True},
+    },
+}
+
+# 发邮件配置
+DEFAULT_FROM_EMAIL = '1342092576@qq.com'
+
+# 163邮箱SMTP服务器地址
+EMAIL_HOST = 'smtp.qq.com'
+# 发件人的邮箱
+EMAIL_HOST_USER = '1342092576@qq.com'
+# 发件人邮箱密码
+EMAIL_HOST_PASSWORD = 'bdgphuuxjsxpjdcf'
+# tls协议，有True和False两种情况
+EMAIL_USE_TLS = True
+# 发件人的邮箱
+EMAIL_FROM = '1342092576@qq.com'
+
+import os
+env = os.environ.get('ENV', None)
+if env == 'prod':
+    # from  settings_prod import *
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db_prod.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }

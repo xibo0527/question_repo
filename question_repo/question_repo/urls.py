@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from app01 import views
+from django.views.static import serve
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +27,10 @@ urlpatterns = [
     url(r'apis/',include('apps.apis.urls',namespace='apis')),
     url(r'uc/',include('apps.usercenter.urls',namespace='uc')),
     url(r'^',include('apps.repo.urls',namespace='repo')),
+    url(r'^paginator/$',views.Pagi.as_view()),
+
+    # meida 处理
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+    # ckeditor
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]

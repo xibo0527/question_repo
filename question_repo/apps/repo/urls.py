@@ -3,13 +3,11 @@ from django.conf.urls import url,include
 from django.views.generic import TemplateView
 from . import views
 urlpatterns = [
-    url('^$',TemplateView.as_view(template_name="index.html"),name='index'),
+    url('^$',views.index,name='index'),
     # 题目列表
-    url('^questions/$',TemplateView.as_view(template_name="questions.html"),name='questions'),
+    url('^questions/$',views.QuestionsList.as_view(),name='questions'),
     # 贡献题目
-    url('^question/$',views.test,name='question'),
+    url('^question/$',views.Question.as_view(),name='question'),
     # 题目详情
-    url('^question/id/$',
-        TemplateView.as_view(template_name="question_detail.html"),
-        views.test,name='question_detail'),
+    url('^question/(?P<id>\d+)/$',views.QuestionDetail.as_view(),name='question_detail'),
 ]
