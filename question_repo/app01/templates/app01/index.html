@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html style="overflow: hidden;" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/img/favicon.html">
+    <title>首页-题库系统</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/app01/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/static/app01/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/static/app01/css/style.css" rel="stylesheet">
+    <link href="/static/app01/css/style-responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/app01/css/owl.carousel.css" type="text/css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/static/app01/js/html5shiv.js"></script>
+      <script src="/static/app01/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      body{
+          font-size: 14px; !important;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section id="container" class="">
+          <!--header start-->
+          <header class="header white-bg">
+              <!--logo start-->
+              <a href="#" class="logo">三创<span>题库</span></a>
+              <!--logo end-->
+              <div class="top-nav">
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <ul class="nav navbar-nav">
+                    <li class="active">
+                      <a class="" href="http://127.0.0.1:8000/">
+                          <span> 首页 </span>
+                      </a>
+                    </li>
+                    <li class="">
+                        <a class="" href="http://127.0.0.1:8000/question/">
+                      <span> 校招题 </span>
+                    </a>
+                    </li>
+                  </ul>
+                  <ul class="nav pull-right top-menu">
+                      <li>
+                          <form action="/question/">
+                             <input type="text" class="form-control search" placeholder="Search" name="search" id="search">
+                          </form>
+                      </li>
+                      <!-- user login dropdown start-->
+
+                      <li class="dropdown">
+                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                              <img alt="" src="/static/app01/img/1534323246.png" height="30px">
+
+                              <span class="username">admin</span>
+                              <b class="caret"></b>
+                          </a>
+                          <ul class="dropdown-menu">
+                              <div class="log-arrow-up"></div>
+                              <li><a class="" href="http://127.0.0.1:8000/uc/profile/"> 个人资料 </a></li>
+                              <li><a class="" href="http://127.0.0.1:8000/uc/change_passwd/"> 修改密码 </a></li>
+                              <li><a class="" href="http://127.0.0.1:8000/uc/answer/"> 我的回答 </a></li>
+                              <li><a class="" href="http://127.0.0.1:8000/uc/collect/"> 我的收藏 </a></li>
+                              <li><a class="" href="#myModal-1" data-toggle="modal"> 贡献题目 </a></li>
+                              <li><a class="" href="http://127.0.0.1:8000/uc/contribut/"> 我的贡献 </a></li>
+                              <li><a class="" href="http://127.0.0.1:8000/accounts/logout/"> 退出 </a></li>
+                          </ul>
+                      </li>
+
+                      <!-- user login dropdown end -->
+                  </ul>
+              </div>
+          </header>
+          <!--header end-->
+          <!--main content start-->
+          <section id="main-content">
+              <section class="wrapper">
+                  <!-- page start-->
+                <div class="row">
+                    <aside class="profile-info col-lg-9">
+                        <!--features carousel start-->
+                        <section class="panel">
+                              <div class="flat-carousal">
+                                  <div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                                      <div class="owl-wrapper-outer">
+                                          <div class="owl-wrapper" style="width: 4926px; left: 0px; display: block;">
+                                              <div class="owl-item active" style="width: 821px;">
+                                                  <div class="item">
+                                                      <h1>通知广告1</h1>
+                                                      <div class="text-center">
+                                                          <a href="javascript:;" class="view-all">View All</a>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="owl-item" style="width: 821px;">
+                                                  <div class="item">
+                                                      <h1>通知广告2</h1>
+                                                      <div class="text-center">
+                                                          <a href="javascript:;" class="view-all">View All</a>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="owl-item" style="width: 821px;">
+                                                  <div class="item">
+                                                      <h1>通知广告3</h1>
+                                                      <div class="text-center">
+                                                          <a href="javascript:;" class="view-all">View All</a>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="owl-controls clickable">
+                                          <div class="owl-pagination">
+                                              <div class="owl-page active"><span class=""></span></div>
+                                              <div class="owl-page"><span class=""></span></div>
+                                              <div class="owl-page"><span class=""></span></div>
+                                          </div>
+                                          <div class="owl-buttons">
+                                              <div class="owl-prev">prev</div>
+                                              <div class="owl-next">next</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </section>
+                        <!--features carousel end-->
+
+                        <section class="panel">
+                              <header class="panel-heading">
+                                  最新动态
+                              </header>
+                              <div class="panel-body">
+                                  <div class="timeline-messages">
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534323246.png" alt=""></a>
+                                          <div class="message-body msg-out">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">admin</a>Dec. 13, 2018, 9:44 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7679/">sql优化</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534407125.png" alt=""></a>
+                                          <div class="message-body msg-in">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">aaa</a>Aug. 16, 2018, 8:13 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7679/">sql优化</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534407125.png" alt=""></a>
+                                          <div class="message-body msg-out">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">aaa</a>Aug. 16, 2018, 8:12 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7584/">HTTP和HTTPS</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534407125.png" alt=""></a>
+                                          <div class="message-body msg-in">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">aaa</a>Aug. 16, 2018, 8:12 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7574/">手写python：用递归的方式判断字符串是否为回文；</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534407125.png" alt=""></a>
+                                          <div class="message-body msg-out">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">aaa</a>Aug. 16, 2018, 7:01 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7587/">RESTful架构(SOAP,RPC)</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534407125.png" alt=""></a>
+                                          <div class="message-body msg-in">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">aaa</a>Aug. 16, 2018, 7 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7576/">三次握手</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534407125.png" alt=""></a>
+                                          <div class="message-body msg-out">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">aaa</a>Aug. 16, 2018, 7 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7568/">手写：一个长度n的无序数字元素列表，如何求中位数，如何尽快的估算中位数，你的算法复杂度是多少；</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534323246.png" alt=""></a>
+                                          <div class="message-body msg-in">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">admin</a>Aug. 15, 2018, 3:19 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7585/">XSRF和XSS</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534323246.png" alt=""></a>
+                                          <div class="message-body msg-out">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">admin</a>Aug. 15, 2018, 3:05 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7572/">手写：一个列表A=[A1，A2，…,An]，要求把列表中所有的组合情况打印出来；</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                      <!-- Comment -->
+                                      <div class="msg-time-chat">
+                                          <a href="#" class="message-img"><img class="avatar" src="/static/app01/img/1534323246.png" alt=""></a>
+                                          <div class="message-body msg-in">
+                                              <span class="arrow"></span>
+                                              <div class="text">
+                                                  <p class="attribution"><a href="#">admin</a>Aug. 15, 2018, 2:08 a.m.</p>
+                                                  <p>回答了<a href="http://127.0.0.1:8000/question/7576/">三次握手</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- /comment -->
+
+                                  </div>
+                              </div>
+                        </section>
+
+                        <!--最近刷题的同学 start-->
+                        <section class="panel">
+                            <header class="panel-heading">
+                              最近刷题的同学
+                            </header>
+                            <div class="panel-body">
+                                 <div class="task-thumb">
+                                     <img src="/static/app01/img/1534323246.png" alt="">
+                                     <div class="clearfix"></div>
+                                     <a href="#">admin</a>
+                                </div>
+                                 <div class="task-thumb">
+                                     <img src="/static/app01/img/1534407125.png" alt="">
+                                     <div class="clearfix"></div>
+                                     <a href="#">aaa</a>
+                                </div>
+                            </div>
+                        </section>
+                        <!--custom chart end-->
+                    </aside>
+                    <aside class="profile-info col-lg-3">
+                      <!--follower start-->
+                      <section class="panel">
+                          <div class="follower">
+                              <div class="panel-body">
+                                  <div class="follow-ava">
+                                      <img src="/static/app01/img/1534323246.png" alt="">
+                                  </div>
+                                  <h4>admin</h4>
+                                  <h4>您已完成 7 道面试题，加油！</h4>
+                              </div>
+                          </div>
+                          <footer class="follower-foot">
+                              <ul>
+                                  <li>
+                                      <h4>7/489</h4>
+                                      <p>刷题量：1 %</p>
+                                  </li>
+                                  <li>
+                                      <h4>第1名</h4>
+                                      <p>当前排名：1/4</p>
+                                  </li>
+                              </ul>
+                          </footer>
+                      </section>
+                      <!--follower end-->
+                      <!--热门题目 start-->
+                      <section class="panel">
+                          <div class="panel-body progress-panel">
+                              <div class="task-progress">
+                                  <h1>热门算法题目</h1>
+                                  <p>答题人数最多的题目</p>
+                              </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+                                  <tr>
+                                      <td>1</td>
+                                      <td>
+                                          <a href="http://127.0.0.1:8000/question/7679/" title="sql优化">7679. sql优化</a>
+                                      </td>
+                                      <td>
+                                          <span class="label label-info">入门</span>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>2</td>
+                                      <td>
+                                          <a href="http://127.0.0.1:8000/question/7576/" title="三次握手">7576. 三次握手</a>
+                                      </td>
+                                      <td>
+                                          <span class="label label-info">入门</span>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>3</td>
+                                      <td>
+                                          <a href="http://127.0.0.1:8000/question/7567/" title="单向链表如何使用快速排序算法进行排序；">7567. 单向链表如何使...</a>
+                                      </td>
+                                      <td>
+                                              <span class="label label-info">入门</span>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>4</td>
+                                      <td>
+                                          <a href="http://127.0.0.1:8000/question/7584/" title="HTTP和HTTPS">7584. HTTP和HTTPS</a>
+                                      </td>
+                                      <td>
+                                              <span class="label label-info">入门</span>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>5</td>
+                                      <td>
+                                          <a href="http://127.0.0.1:8000/question/7580/" title="Post和Get">7580. Post和Get</a>
+                                      </td>
+                                      <td>
+                                              <span class="label label-info">入门</span>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </section>
+                      <!--work progress end-->
+                      <!--近30天刷题用户排行榜 start-->
+                      <section class="panel">
+                          <div class="panel-body progress-panel">
+                              <div class="task-progress">
+                                  <h1>近30天刷题用户排行榜</h1>
+                                  <p></p>
+                              </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+                                  <tr>
+                                      <td>1</td>
+                                      <td>
+                                          <a href="">admin</a>
+                                      </td>
+                                      <td>
+                                          <span>1/489</span>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </section>
+                      <!--work progress end-->
+                </aside>
+                </div>
+                  <!-- page end-->
+              </section>
+          </section>
+          <!--main content end-->
+        </section>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                  <h4 class="modal-title">贡献题目</h4>
+              </div>
+              <div class="modal-body">
+                  <form class="form-horizontal" role="form" method="post" action="">
+                  <input type="hidden" name="csrfmiddlewaretoken" value="mw6yFUw5NTUwcLlAYTFSPr74gjbdHRu1GiOp78BKek1DCh1bL3emqKQlhteWqbeK">
+                      <div class="form-group">
+                          <label for="inputQuestionTitle" class="col-lg-2 control-label">标题</label>
+                          <div class="col-lg-10">
+                              <input type="text" class="form-control" id="inputQuestionTitle" name="title" placeholder="标题">
+                          </div>
+                      </div>
+                       <div class="form-group">
+                            <label for="inputQuestionTitle" class="col-lg-2 control-label">分类</label>
+                            <div class="col-lg-10">
+                                <select class="form-control" id="分类" name="category">
+                                    <option value="0" selected="selected"> 选择分类 </option>
+
+                                        <option value="1">Python</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputQuestionTitle" class="col-lg-2 control-label">内容</label>
+                            <div class="col-lg-10">
+                                <textarea type="text" class="form-control" id="inputQuestionTitle" name="content" placeholder="内容"></textarea>
+                            </div>
+                        </div>
+                      <div class="form-group">
+                          <div class="col-lg-offset-2 col-lg-10">
+                              <button type="submit" class="btn btn-default">提交</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+        </div>
+    </div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/static/app01/js/jquery.js"></script>
+    <script src="/static/app01/js/bootstrap.min.js"></script>
+    <script src="/static/app01/js/jquery.scrollTo.min.js"></script>
+    <script src="/static/app01/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--common script for all pages-->
+    <script src="/static/app01/js/common-scripts.js"></script>
+    <script src="/static/app01/js/owl.carousel.js" ></script>
+    <script>
+      //owl carousel
+      $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true
+          });
+      });
+    </script>
+</body>
+</html>
